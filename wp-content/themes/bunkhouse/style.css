@@ -1,0 +1,1508 @@
+/*
+Theme Name: Bunk House
+Theme URI: http://www.confluence.solutions
+Description: Hostel WordPress theme developed specifically for the Bunkhouse
+Version: 1
+Author: Scott Taylor
+Author URI: http://confluence.solutions
+*/
+
+/*@import url(/css/datepicker.css);
+@import url(/css/flatWeatherPlugin.css);
+@import url(/css/jquery.fancybox.css);
+@import url(/css/fontic-hotel.css);*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800);
+
+
+/*------------------------------------------------------------------
+
+[Color codes]
+
+Body background:        #fff (white)
+Brand color:            #495a7d (navy blue)
+Text:                   #888 (gray)
+Header h1-h6:           #222 (dark gray)
+Main nav background:    #37ca95 (green)
+Footer background:      #222 (dark gray)
+
+a (standard):           #37ca95 (green)
+a (visited):            #37ca95 (green)
+a (active):             #37ca95 (green)
+a (hover):              #2fac7f (darker green)
+
+------------------------------------------------------------------
+
+[Table of contents]
+
+1. Common Styles
+   1.1. Headings
+   1.2. Links & Buttons
+   1.3. Loader
+   1.4. Section Colors
+   1.5. Carousels
+
+2. Header
+   2.1. Top
+   2.2. Logo & Navigation
+
+3. Slider
+   3.1. Arrows & Pagination
+   3.2. Slider Content
+   3.3. Video Slider
+   3.4. Weather
+
+4. Home Page Sections
+   4.1. Section Styles
+   4.2. Section Backgrounds
+   4.3. Home Page Special Offers
+   4.4. Recent Posts
+   4.5. Latest Guest Reviews
+
+5. Content
+   5.1. Rooms
+   5.2. Room Amenities
+   5.3. Gallery
+   5.4. Restaurant
+   5.5. Reviews
+   5.6. Weddings
+   5.7. Contact
+   5.8. Special Offers
+   5.9. Vouchers
+   5.10. Grid
+   5.11. Tabs & Pills
+   5.12. Blog
+   5.13. Hotel Icons
+
+6. Footer
+    6.1. Widgets
+    6.2. Credits
+
+7. Reservation
+
+8. Mobile styles
+    8.1. Big Screens
+    8.2. Regular Tablets
+    8.3. Small Tablets
+    8.4. Smartphones
+
+-------------------------------------------------------------------*/
+
+
+/* custom styles added by Confluence  */
+
+#bh-hero {margin-bottom:20px;}
+
+/*.post-thumbnail img {width:100%;}*/
+
+.menu li {
+    margin-bottom: 15px !important;
+	border-bottom: 1px solid #333;
+	padding-left: 1.3em;
+}
+
+
+.menu li:before {
+  content: "\f105"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 1.3em; /* same as padding-left set on li */
+	color:#495a7d;
+}
+
+.ev-box {
+	border-top:2px solid #495a7d !important;
+	background-color: #f3f3f3 !important;
+}
+
+.ev-item {
+	color:#000 !important;
+	font-weight:bold;
+}
+
+.ev-item .start_hour {
+	color:#000 !important;
+	font-weight:bold;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 40.25%;
+    padding-top: 0; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.slides-pagination {
+	display:none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #495a7d;
+    border-color: #495a7d;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #495A9C;
+    border-color: #495a7d;
+}
+
+a {
+    color: #495a7d;
+    text-decoration: none;
+}
+
+.textwidget a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 1. COMMON STYLES
+-------------------------------------------------------------------*/
+
+body {
+	overflow-x: hidden;
+}
+
+hr {
+	margin: 40px 0;
+}
+
+	/* 1.1. HEADINGS
+	---------------------------------------------------------------*/
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 2em 0;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-weight: 900;
+		margin: 0 0 2em;
+	}
+
+	h2 {
+		font-weight: 900;
+	}
+
+	h4 span {
+		display: block;
+		font-size: 0.8em;
+		margin-top: 0.5em;
+	}
+
+	h5 {
+		color: #888;
+		margin: 0;
+	}
+
+	h1::after {
+		background: #495a7d;
+		content: "";
+		display: block;
+		height: 2px;
+		margin-top: 15px;
+		width: 170px;
+	}
+
+		.text-center h1::after {
+			margin: 15px auto 0;
+		}
+
+	/* 1.2. LINKS & BUTTONS
+	---------------------------------------------------------------*/
+
+	a,
+	button {
+		cursor: pointer;
+		transition: all .5s ease;
+		-moz-transition: all .5s ease;
+		-webkit-transition: all .5s ease;
+		-o-transition: all .5s ease;
+	}
+
+	.btn {
+		text-transform: uppercase;
+	}
+
+	/* 1.3. LOADER
+	---------------------------------------------------------------*/
+
+	#loader {
+		background: #fff;
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 5000;
+	}
+
+		#loader i {
+			left: 50%;
+			margin: -24px 0 0 -24px;
+			position: absolute;
+			top: 50%;
+		}
+
+	/* 1.4. SECTION COLORS
+	---------------------------------------------------------------*/
+
+	.primary-background {
+		background: #495a7d;
+		color: #fff;
+	}
+
+		.primary-background h1::after {
+			background: #fff;
+		}
+
+		.primary-background h5 {
+			color: #fff;
+		}
+
+	.primary-color {
+		color: #495a7d;
+	}
+
+	.color2 {
+		background: #f4f1e9;
+	}
+
+	.color3 {
+		background: #222;
+		color: #fff;
+	}
+
+		a.color3:hover,
+		button.color3:hover {
+			background: #000;
+			color: #fff;
+		}
+
+		.color3 h1,
+		.color3 h2,
+		.color3 h3,
+		.color3 h4 {
+			color: #fff;
+		}
+
+	/* 1.5. CAROUSELS
+	---------------------------------------------------------------*/
+
+	.owl-controls {
+		margin: 30px 0;
+	}
+
+		.owl-controls .owl-prev,
+		.owl-controls .owl-next {
+			color: #000;
+			cursor: pointer;
+			opacity: 0.1;
+			transition: all .5s ease;
+			-moz-transition: all .5s ease;
+			-webkit-transition: all .5s ease;
+			-o-transition: all .5s ease;
+		}
+
+		.owl-controls .owl-prev:hover,
+		.owl-controls .owl-next:hover {
+			opacity: 0.2;
+		}
+
+/* 2. HEADER
+-------------------------------------------------------------------*/
+
+	header {
+		background: #1a1a1a;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1000;
+		transition: all .5s ease;
+		-moz-transition: all .5s ease;
+		-webkit-transition: all .5s ease;
+		-o-transition: all .5s ease;
+	}
+
+		.hide-header {
+			top: -86px;
+		}
+
+	/* 2.1. TOP
+	---------------------------------------------------------------*/
+
+	#header ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+		#header ul li {
+			display: inline;
+			margin: 0 0 0 20px;
+		}
+
+		#header ul li a {
+			color: #fff;
+		}
+
+		#header ul li .btn i {
+			color: #fff;
+		}
+
+		/*#header ul li .btn i:hover {
+			color: #495a7d;
+		}
+
+		#header ul li a:hover {
+			color: #495a7d;
+		}*/
+
+		#header ul li i {
+			margin-right: 5px;
+		}
+
+.btn-primary:hover {}
+
+
+#hotel-info {
+	padding: 20px 0;
+}
+
+.blue > li:hover > a, .blue > li.active > a {
+    background: #495a7d;
+    color: #fff !important;
+}
+
+.blue ul.dropdown li:hover > a {
+    background: #495a7d;
+    color: #fff;
+}
+
+
+
+	/* 2.2. LOGO & NAVIGATION
+	---------------------------------------------------------------*/
+
+	#logo {
+		height: 124px;
+		padding: 0;
+	}
+
+		#logo img {
+			position: absolute;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+
+	header nav {
+		background: #222;
+		border-top: 1px solid #2e2e2e;
+	}
+
+.navbar {
+    min-height: 44px;
+		border-radius: 0px !important;
+    margin-bottom: 0;
+    border: 0; /*1px solid transparent;*/
+}
+
+.navbar-default {
+	background-color: #111;
+}
+
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+    
+    margin-left:10px;
+    padding: 0px 20px;
+    line-height: 40px;
+    font-weight: bold;
+    height: 40px;
+    vertical-align: baseline;
+    text-align: left;
+    width: auto;
+    display: block;
+    color: #888;
+    text-transform: uppercase;
+    background: transparent;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -ms-border-radius: 0px 0px 0px 0px;
+    -o-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-toggle-on > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:hover, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:focus {
+    background: #333;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-color: #fff;
+}
+
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-flyout.mega-menu-item-has-children > a.mega-menu-link:after, #mega-menu-wrap-primary #mega-menu-primary li.mega-menu-flyout li.mega-menu-item-has-children > a.mega-menu-link:after, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item-has-children > a.mega-menu-link:after {
+    content: '\f132';
+}
+
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link {
+    color: #888;
+    font-size: 14px;
+	border-bottom: 1px solid #333;
+	font-weight: normal;
+}
+
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link:hover, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link:focus {
+	color:#fff;
+	font-weight: normal;
+}
+
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
+    
+    background: #000;
+}
+
+/* 3. SLIDER
+-------------------------------------------------------------------*/
+
+#slider .tint {
+	background: rgba(0,0,0,0.4);
+	height: 100%;
+}
+
+	/* 3.1. ARROWS & PAGINATION
+	---------------------------------------------------------------*/
+
+	.slides-navigation a {
+		background: rgba(0,0,0,0.4);
+		color: #fff;
+		opacity: 0.4;
+		padding: 10px 20px 10px 15px;
+	}
+
+		.slides-navigation a:hover {
+			opacity: 1;
+		}
+
+	.slides-pagination {
+		bottom: 15px;
+	}
+
+		.slides-pagination a {
+			border: 1px solid #fff;
+		}
+
+			.slides-pagination a.current {
+				background: #fff;
+			}
+
+	/* 3.2. SLIDER CONTENT
+	---------------------------------------------------------------*/
+
+	#slider .content {
+		padding: 0 30px;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+		#slider .content h1,
+		#slider .content h5 {
+			color: #fff;
+			margin: 0;
+			margin-bottom: 15px;
+		}
+
+			#slider .content h1::after {
+				display: none;
+			}
+
+	/* 3.3. VIDEO SLIDER
+	---------------------------------------------------------------*/
+
+	#video {
+		position: relative;
+		width: 100%;
+	}
+
+		#video video {
+			background: url(http://placehold.it/1400x900.jpg) no-repeat;
+			background-size: cover;
+			bottom: 0;
+			height: auto;
+			min-height: 100%;
+			min-width: 100%;
+			pointer-events: none;
+			position: absolute;
+			right: 0;
+			width: auto;
+		}
+
+		#video .tint {
+			background: rgba(0,0,0,0.4);
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+			#video .tint .container {
+				height: 100%;
+				left: 0;
+				margin: 0 auto;
+				position: relative;
+				top: 0;
+			}
+
+	/* 3.4. WEATHER
+	---------------------------------------------------------------*/
+
+	#weather {
+		color: #fff;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+
+	#weather h2,
+	.flatWeatherPlugin .wiToday .wiDay,
+	.flatWeatherPlugin .wiToday > .wiIconGroup p {
+		display: none;
+	}
+
+	.flatWeatherPlugin .wiToday {
+		position: absolute;
+		right: 45px;
+		top: 150px;
+		width: auto;
+	}
+
+		.flatWeatherPlugin .wiToday > .wiIconGroup,
+		.flatWeatherPlugin div.wiToday > p.wiTemperature {
+			float: left;
+			text-align: left;
+			width: 90px;
+		}
+
+		.flatWeatherPlugin div.wiToday > p.wiTemperature {
+			font-size: 500%;
+			width: 130px;
+		}
+
+	.flatWeatherPlugin ul.wiForecasts {
+		bottom: 30px;
+		left: 0;
+		position: absolute;
+		right: 30px;
+		width: auto;
+	}
+
+/* 4. HOME PAGE SECTIONS
+-------------------------------------------------------------------*/
+
+	/* 4.1. SECTION STYLES
+	---------------------------------------------------------------*/
+
+	.home-section {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		overflow: hidden;
+	}
+
+	.home-section .photo {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.home-section .padding {
+		padding: 100px 80px; 
+	}
+
+	/* 4.2. SECTION BACKGROUNDS
+	---------------------------------------------------------------*/
+
+	#welcome .photo {
+		background-image: url(http://placehold.it/1400x900.jpg);
+	}
+
+	#rooms .photo {
+		background-image: url(http://placehold.it/1400x900.jpg);
+	}
+
+	#restaurant .photo {
+		background-image: url(http://placehold.it/1400x900.jpg);
+	}
+
+	#spa .photo {
+		background-image: url(http://placehold.it/1400x900.jpg);
+	}
+
+	#golf .photo {
+		background-image: url(http://placehold.it/1400x900.jpg);
+	}
+
+	/* 4.3. HOME PAGE SPECIAL OFFERS
+	---------------------------------------------------------------*/
+
+	#specials {
+		padding: 80px 0;
+	}
+
+		#specials .price {
+			background: rgba(0,0,0,0.8);
+			color: #fff;
+			display: block;
+			padding: 15px 0;
+			position: absolute;
+			right: 15px;
+			text-align: center;
+			top: 0;
+			width: 100px;
+		}
+
+			#specials .price span {
+				display: block;
+				font-size: 2em;
+				font-weight: 900;
+				line-height: 1em;
+			}
+
+	/* 4.4. RECENT POSTS
+	---------------------------------------------------------------*/
+
+	#blog {
+		padding: 80px 0;
+	}
+
+	.latest-post h4 {
+		margin: 1.5em 0 0;
+	}
+
+		.latest-post h4 a {
+			color: #222;
+		}
+
+			.latest-post h4 a:hover {
+				color: #888;
+			}
+
+	.latest-post h6 {
+		color: #ccc;
+		margin: 0.5em 0 2em;
+		text-transform: none;
+	}
+
+		.latest-post h6 a {
+			color: #ccc;
+		}
+
+			.latest-post h6 a:hover {
+				color: #888;
+			}
+
+		.latest-post h6 span {
+			margin-right: 20px;
+		}
+
+		.latest-post h6 i {
+			margin-right: 7px;
+		}
+
+	/* 4.5. LATEST GUEST REVIEWS
+	---------------------------------------------------------------*/
+
+	#home-reviews {
+		padding: 80px 0;
+	}
+
+	.latest-review blockquote {
+		border: 0;
+		font-style: italic;
+		margin: 0;
+		padding: 0 0 0 50px;
+		position: relative;
+	}
+
+		.latest-review blockquote i {
+			color: #222;
+			left: 0;
+			position: absolute;
+			top: 0;
+		}
+
+		.latest-review blockquote small {
+			color: #fff;
+			font-style: normal;
+			margin-top: 1em;
+		}
+
+/* 5. CONTENT
+-------------------------------------------------------------------*/
+
+#content {
+	padding: 20px 0 80px;
+}
+
+#rooms-content {
+	padding: 30px 0 20px;
+}
+
+#map-content {
+	padding: 30px 0 0;
+}
+
+	/* 5.1. ROOMS
+	---------------------------------------------------------------*/
+
+	.room {
+		padding-bottom: 40px;
+	}
+
+		.room h4 {
+			font-weight: 900;
+			margin: 1em 0;
+		}
+
+		.room ul {
+			list-style: none;
+			margin-bottom: 2em;
+			padding-left: 0;
+		}
+
+			.room ul li {
+				border-bottom: 1px solid #e7e7e7;
+				padding: 5px 0;
+			}
+
+				.room ul li span {
+					color: #222;
+					float: right;
+				}
+
+    /* 5.2. ROOM AMENITIES
+    ---------------------------------------------------------------*/
+
+    .amenities {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .amenities li {
+            margin-bottom: 30px;
+        }
+
+            .amenities li h6,
+            .amenities li p {
+                margin: 0;
+            }
+
+            .amenities li span {
+                color: #ccc;
+                font-size: 40px;
+                margin-right: 15px;
+            }
+
+    .amenity {
+        margin-bottom: 50px;
+    }
+
+        .amenity h3 {
+            display: block;
+            height: 1em;
+            overflow: hidden;
+        }
+
+        .amenity .description {
+            display: block;
+            height: 4.8em;
+            overflow: hidden;
+        }
+
+	/* 5.3. GALLERY
+	---------------------------------------------------------------*/
+
+	.fotorama {
+		margin-bottom: 2em;
+	}
+
+	.fotorama__thumb-border {
+		border-color: #37ca95;
+	}
+
+	.gallery a {
+		margin-bottom: 30px;
+	}
+
+	/* 5.4. RESTAURANT
+	---------------------------------------------------------------*/
+
+	.menu {
+		list-style: none;
+		padding: 0;
+	}
+
+		.menu li {
+			margin-bottom: 30px;
+		}
+
+			.menu li h6 {
+				margin: 0;
+			}
+
+				.menu li h6::after {
+					background: #37ca95;
+					content: "";
+					display: block;
+					height: 2px;
+					margin: 15px 0;
+					width: 50px;
+				}
+
+	/* 5.5. REVIEWS
+	---------------------------------------------------------------*/
+
+	.parallax {
+		background-attachment: fixed;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+	}
+
+	#reviews {
+		background-image: url(http://placehold.it/1400x900.jpg);
+		color: #fff;
+		padding: 60px 0;
+	}
+
+		#reviews .reviews-tint {
+			display: block;
+			left: 0;
+			height: 100%;
+			opacity: 0.9;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		#reviews h5 {
+			color: #fff;
+		}
+
+		#reviews h1::after {
+			background: #fff;
+		}
+
+		#reviews .review img {
+			border: 2px solid #fff;
+		}
+
+		#reviews .review blockquote {
+			border: 0;
+			font-style: italic;
+			margin-top: 30px;
+			padding: 0;
+		}
+
+			#reviews .review blockquote small {
+				color: #fff;
+			}
+
+	#reviews-masonry .review {
+		padding: 15px;
+		width: 33.3333333%;
+	}
+
+		#reviews-masonry .review .review-container {
+			border: 1px solid #e7e7e7;
+			padding: 30px;
+		}
+
+		#reviews-masonry .review h4 {
+			margin-bottom: 0;
+		}
+
+		#reviews-masonry .review .stars {
+			color: #ffd200;
+			font-size: 1.2em;
+		}
+
+		#reviews-masonry .review blockquote {
+			border: 0;
+			font-size: 1em;
+			font-style: italic;
+			padding: 0;
+		}
+
+			#reviews-masonry .review blockquote small {
+				font-size: 1em;
+				margin-top: 1em;
+			}
+
+	/* 5.6. WEDDINGS
+	---------------------------------------------------------------*/
+
+	.wedding-packages {
+		list-style: none;
+		margin: 2em 0;
+		padding: 0;
+	}
+
+		.wedding-packages li {
+			border-bottom: 1px solid #e7e7e7;
+			padding: 7px 0;
+		}
+
+			.wedding-packages li i {
+				margin-right: 10px;
+			}
+
+	/* 5.7. CONTACT
+	---------------------------------------------------------------*/
+
+	#contact .col-sm-3 {
+		padding-top: 60px;
+	}
+
+	#contact span {
+		font-size: 3em;
+	}
+
+	#contact h4 {
+		margin-bottom: 0.2em;
+	}
+
+	#contact i {
+		margin-right: 10px;
+	}
+
+	#map-canvas {
+		height: 600px;
+	}
+
+	/* 5.8. SPECIAL OFFERS
+	---------------------------------------------------------------*/
+
+	.price {
+		background: rgba(0,0,0,0.8);
+		color: #fff;
+		padding: 15px;
+		position: absolute;
+		right: 30px;
+		top: 0;
+	}
+
+		.price span {
+			display: block;
+			font-size: 1.5em;
+			font-weight: 900;
+		}
+
+	#special-offers {
+		padding: 80px 0;
+	}
+
+	.special-offer {
+		margin-bottom: 30px;
+		position: relative;
+	}
+
+		.special-offer .description {
+			background: #fff;
+			padding: 1px 30px 15px 30px;
+		}
+
+			.special-offer .description p {
+				height: 5.5em;
+				overflow: hidden;
+			}
+
+			.special-offer .description .btn {
+				margin-bottom: 15px;
+			}
+
+	/* 5.9. VOUCHERS
+	---------------------------------------------------------------*/
+
+	.voucher {
+		padding-bottom: 60px;
+	}
+
+		.voucher h4 span {
+			font-size: 1.5em;
+			font-weight: 900;
+		}
+
+		.voucher p {
+			height: 7em;
+			overflow: hidden;
+		}
+
+	/* 5.10. GRID
+	---------------------------------------------------------------*/
+
+	.grid {
+		background: #eee;
+		margin-bottom: 30px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+	/* 5.11. TABS & PILLS
+	---------------------------------------------------------------*/
+
+	.tab-pane {
+		padding: 15px 0;
+	}
+
+	/* 5.12. BLOG
+	---------------------------------------------------------------*/
+
+	.post h5 {
+		margin-bottom: 5px;
+	}
+
+		.post h5 span {
+			margin-right: 20px;
+		}
+
+			.post h5 span i {
+				margin-right: 7px;
+			}
+
+	.share {
+		display: table;
+		list-style: none;
+		margin: 3em 0;
+		padding: 0;
+		width: 100%;
+	}
+
+		.share li {
+			float: left;
+			margin-right: 5px;
+		}
+
+			.share li h5 {
+				margin: 7px 10px 0 0;
+			}
+
+	.tags {
+		border-bottom: 1px solid #e7e7e7;
+		border-top: 1px solid #e7e7e7;
+		display: table;
+		list-style: none;
+		margin: 3em 0;
+		padding: 10px 0;
+		width: 100%;
+	}
+
+		.tags li {
+			float: left;
+			margin-right: 15px;
+		}
+
+	#author {
+		margin: 3em 0;
+	}
+
+		#author h4 {
+			margin: 0;
+		}
+
+		#author p {
+			margin: 0.5em 0;
+		}
+
+		#author .social {
+			display: table;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+
+			#author .social li {
+				float: left;
+				margin-right: 5px;
+			}
+
+				#author .social li a {
+					color: #d8d8d8;
+				}
+
+					#author .social li a:hover {
+						color: #bbb;
+					}
+
+	#paging {
+		display: table;
+		list-style: none;
+		margin: 3em 0;
+		padding: 0;
+		width: 100%;
+	}
+
+	.gallery {
+		list-style: none;
+		padding: 0;
+	}
+
+		.gallery li {
+			margin-bottom: 30px;
+		}
+
+	.post .author {
+		margin-bottom: 15px;
+	}
+
+	.media {
+		margin-top: 40px;
+	}
+
+	.media-photo {
+		width: 80px;
+	}
+
+	.sidebar {
+		margin-bottom: 60px;
+	}
+
+		.sidebar h4 {
+			margin: 0 0 1em;
+		}
+
+			.sidebar h4 i {
+				color: #ddd;
+				margin-right: 10px;
+			}
+
+		.sidebar li {
+			border-bottom: 1px solid #e7e7e7;
+		}
+
+			.sidebar li a {
+				display: block;
+				padding: 10px 0;
+			}
+
+		.sidebar .meta {
+			color: #888;
+			display: block;
+		}
+
+	/* 5.13. HOTEL ICONS
+	---------------------------------------------------------------*/
+
+	.icons span {
+		display: inline-block;
+		font-size: 3em;
+		margin: 20px;
+	}
+
+/* 6. FOOTER
+-------------------------------------------------------------------*/
+
+	/* 6.1. WIDGETS
+	---------------------------------------------------------------*/
+
+	#widgets {
+		background: #222;
+		padding: 30px 0;
+	}
+
+	.widget {
+		padding: 0px 15px 30px;
+	}
+
+		.widget h4 {
+			color: #fff;
+		}
+
+		.widget nav ul {
+			list-style: none;
+			padding: 0;
+		}
+
+			.widget nav ul li a {
+				border-bottom: 1px solid #333;
+				color: #888;
+				display: block;
+				padding: 5px 0;
+			}
+
+				.widget nav ul li a:hover {
+					color: #fff;
+				}
+
+				.widget nav ul li i {
+					margin-right: 10px;
+				}
+
+	/* 6.2. CREDITS
+	---------------------------------------------------------------*/
+
+	#credits {
+		background: #111;
+		padding: 15px 0;
+	}
+
+		#credits ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+			#credits ul li {
+				display: inline;
+				margin-left: 10px;
+			}
+
+/* 7. RESERVATION
+---------------------------------------------------------------*/
+
+#reservation {
+	background: rgba(0,0,0,0.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+}
+
+	#reservation-container {
+		left: 50%;
+		margin-left: -230px;
+		padding: 30px;
+		position: absolute;
+		top: 50%;
+		width: 460px;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+	#reservation .close {
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		width: auto;
+	}
+
+	#reservation h2 {
+		font-weight: 900;
+		margin: 0 0 1em;
+	}
+
+	#reservation input {
+		background: rgba(0,0,0,0.1);
+		border: 0;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	#reservation .input-group-addon {
+		background: rgba(0,0,0,0.2);
+		border: 0;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	#reservation .select {
+		background: rgba(0,0,0,0.1);
+		border: 0;
+		color: #fff;
+		font-weight: bold;
+		height: auto;
+		text-align: center;
+	}
+
+	#reservation .quantity,
+	#reservation .children-quantity {
+		background: rgba(0,0,0,0.2);
+		border: 0;
+		font-weight: 900;
+	}
+
+	#reservation-arrival,
+	#reservation-departure {
+		cursor: pointer;
+	}
+
+	#reservation .has-feedback label~.form-control-feedback {
+		line-height: 39px;
+		right: 15px;
+		top: 28px;
+	}
+
+.form-control-feedback {
+	right: 13px;
+}
+
+.has-feedback label~.form-control-feedback {
+	top: 41px;
+}
+
+/* 8. MOBILE SITES
+-------------------------------------------------------------------*/
+
+	/* 8.1. BIG SCREENS
+	---------------------------------------------------------------*/
+	@media (min-width: 1200px) {
+
+	}
+
+	/* 8.2. REGULAR TABLETS
+	---------------------------------------------------------------*/
+	@media (max-width: 991px) {
+
+		.home-section .padding {
+			padding: 80px 60px; 
+		}
+
+		#reviews-masonry .review {
+			width: 50%;
+		}
+
+	}
+
+	/* 8.3. SMALL TABLETS
+	---------------------------------------------------------------*/
+	@media (max-width: 767px) {
+
+		#header ul li#hotel-phone,
+		#header ul li#hotel-email {
+			display: none;
+		}
+
+		header nav .container {
+			padding: 0;
+		}
+
+		.home-section {
+			display: block;
+		}
+
+		.home-section .photo {
+			height: 400px;
+		}
+
+		.home-section .padding {
+			padding: 60px 40px; 
+		}
+
+		.latest-review blockquote {
+			font-size: 1em;
+			padding: 0;
+		}
+
+			.latest-review blockquote i {
+				display: none;
+			}
+
+			.latest-review blockquote small {
+				font-size: 1em;
+			}
+
+		#reservation-container {
+			margin-left: -140px;
+			width: 280px;
+		}
+
+		#reviews-masonry .review {
+			width: 100%;
+		}
+
+	}
+
+	/* 8.4. SMARTPHONES
+	---------------------------------------------------------------*/
+	@media (max-width: 480px) {
+
+		.home-section .photo {
+			height: 200px;
+		}
+
+		.home-section .padding {
+			padding: 80px 30px; 
+		}
+
+		#header ul li .btn {
+			padding: 5px 7px 5px 10px;
+		}
+
+			#header ul li .btn span {
+				display: none;
+			}
+
+		#reservation {
+			background: none;
+			position: absolute;
+		}
+
+		#reservation-container {
+			border-radius: 0;
+			left: 0;
+			margin: 0;
+			top: 0;
+			width: 100%;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+		}
+
+		.datepicker {
+			position: absolute;
+		}
+
+		.flatWeatherPlugin ul.wiForecasts li > span {
+			width: 45%;
+		}
+
+		.flatWeatherPlugin ul.wiForecasts ul.wiForecast {
+			width: 55%;
+		}
+
+		#map-canvas {
+			height: 250px;
+		}
+
+		.post h1 {
+			font-size: 24px;
+		}
+
+		.post h5 {
+			font-size: 1em;
+		}
+
+			.post h5 span {
+				display: block;
+				margin-bottom: 5px;
+			}
+
+	}
